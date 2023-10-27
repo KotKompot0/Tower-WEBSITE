@@ -1,18 +1,49 @@
 /*Подключение шрифтов*/
 @import url("https://fonts.cdnfonts.com/css/baron-neue");
 @import url("https://fonts.cdnfonts.com/css/bebas-neue");
-// @import url("https://fonts.cdnfonts.com/css/gilroy-bold");
-@import url(https://db.onlinewebfonts.com/c/1dc8ecd8056a5ea7aa7de1db42b5b639?family=Gilroy-Regular);
 @import url("https://fonts.cdnfonts.com/css/furore");
+
+@import url("../fonts/Gilroy/stylesheet.css");
+
 
 /*Обнуление стилей*/
 @import "_nullstyle";
 
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.col {
+    margin: 0;
+    padding: 0;
+}
+
+
+.col-lg-6 {
+    margin: 0;
+    padding: 0;
+}
+
+.col-lg-12 {
+    margin: 0;
+    padding: 0;
+}
+
+.col-sm-12 {
+    margin: 0;
+    padding: 0;
+}
+
+
 /*Шрифты*/
 $font-logo: "furore";
-$font-title: "Baron Neue";
-$font-subtitle: "Gilroy-Regular";
-$font-text: "Gilroy-Regular";
+$font-title-block: "Baron Neue";
+$font-title-page: Gilroy Regular;
+$font-subtitle-page: Gilroy Regular;
+$font-text: Gilroy Light;
+
 
 /*Палитра цветов*/
 $color-white: #fff;
@@ -23,14 +54,14 @@ $color-bg: #11212a;
 $color-container: #102430;
 $color-sub-bg: #152a36;
 
-@mixin fontStyle(
-    $color,
+@mixin fontStyle($color,
     $font-family,
     $font-size,
     $font-style: normal,
     $font-weight: 400,
     $line-height: "",
     $letter-spacing: ""
+
 ) {
     color: $color;
     font-family: $font-family;
@@ -42,7 +73,7 @@ $color-sub-bg: #152a36;
 }
 
 * {
-    @include fontStyle($color-light-blue, $font-text, 17px);
+    @include fontStyle($color-light-blue, $font-text, 17px, normal, normal, 1.4, 0.050em);
 }
 
 %logoFont {
@@ -50,30 +81,32 @@ $color-sub-bg: #152a36;
 }
 
 %textFont {
-    @include fontStyle($color-light-blue, $font-text, 17px, normal, 400, 28px, 1.36px);
+    @include fontStyle($color-light-blue, $font-text, 17px, normal, 400, 1.82, 0.1em);
 }
 
-%titleBlueFont {
-    @include fontStyle($color-blue, $font-subtitle, calc(19px + 16 * (100vw / 1920)), normal, 500, normal, 1.4px);
+%fontTitlePage {
+    @include fontStyle($color-blue, $font-title-page, calc(21px + 16 * (100vw / 1920)), normal, 600, normal, 0.11em);
 }
 
-%titleWhiteFont {
-    @include fontStyle($color-white, $font-title, calc(19px + 6 * (100vw / 1920)), normal, 400, normal, 1px);
+%fontTitleBlock {
+    @include fontStyle($color-white, $font-title-block, calc(19px + 6 * (100vw / 1920)), normal, 400, normal, 0.050em);
 }
 
-%subtitleWhiteFont {
-    @include fontStyle($color-white, $font-subtitle, calc(19px + 3 * (100vw / 1920)), normal, 500, normal, 0.88px);
+%fontSubtitleBlock {
+    @include fontStyle($color-white, $font-subtitle-page, calc(8px + 16 * (100vw / 1920)), normal, 600, normal, 0.1em);
 }
 
 a,
 nav-item {
-    @include fontStyle($color-white, $font-text, 16px);
+    @include fontStyle($color-white, $font-text, calc(9px + 6 * (100vw / 1920)));
 }
 
 button {
     background-color: $color-blue;
     color: #ffffff;
     border-radius: 5px !important;
+    border: 2px solid $color-blue;
+    padding: 3px 10px;
     @extend %textFont;
 
     transition: 0.2s ease;
@@ -83,6 +116,19 @@ button {
     }
 }
 
+.btn-outline {
+    background: transparent;
+    border: 2px solid $color-light-blue;
+    transition: 0.2s ease;
+
+    &:hover {
+        border-color: $color-blue;
+        color: $color-blue;
+        background: transparent;
+    }
+}
+
+
 a {
     color: #ffffff !important;
     transition: 0.2s ease;
@@ -91,6 +137,7 @@ a {
         color: $color-blue !important;
     }
 }
+
 
 .container {
     background: $color-container;
@@ -133,16 +180,16 @@ ul {
 
 .title-blue {
     text-align: center;
-    @extend %titleBlueFont;
+    @extend %fontTitlePage;
 }
 
 .title-white {
     text-align: center;
-    @extend %titleWhiteFont;
+    @extend %fontTitleBlock;
 }
 
 .subtitle {
-    @extend %subtitleWhiteFont;
+    @extend %fontSubtitleBlock;
 }
 
 .btn-active {
@@ -241,11 +288,11 @@ body {
                     &:hover {
                         background: $color-dark-blue;
                     }
+
                     .nav-link:hover {
                         color: white !important;
                     }
                 }
-  
 
                 li {
                     border-radius: 3px;
@@ -269,8 +316,8 @@ body {
         .container_main {
             position: relative;
             padding-top: 20px;
-            padding-left: 70px;
-            padding-right: 70px;
+            padding-left: 40px;
+            padding-right: 40px;
 
             &::before,
             &::after {
@@ -296,6 +343,8 @@ body {
                 margin-bottom: 20px;
             }
 
+            // СТРАНИЦА "АКТИВНОСТИ"
+            // выбор активности
             .container__select-activities {
                 background: $color-sub-bg;
                 border-radius: 10px;
@@ -346,6 +395,7 @@ body {
                 }
             }
 
+            //  характеристика
             .container__activity-info {
                 .container__activity-preview {
                     display: flex;
@@ -375,6 +425,97 @@ body {
                     }
                 }
             }
+
+            // ----------- КОНЕЦ АКТИВНОСТИ ------------
+
+            // СТРАНИЦА "ГЛАВНАЯ"
+            // приветствие
+            .welcome-block {
+                padding-top: 40px;
+                justify-content: center;
+                align-items: center;
+
+                // .welcome-block__title
+                &__title {
+                    @extend %fontTitlePage;
+
+                    font-size: 60px;
+                    font-weight: 500;
+                    letter-spacing: 0em;
+                
+                }
+
+                // .welcome-block__subtitle
+                &__subtitle {
+                    @extend %fontTitleBlock;
+
+                    font-size: calc(65px + 16 * (100vw / 1920));
+                    color: $color-blue;
+                    margin-left: -1.98px;
+                    margin-bottom: 40px;
+
+                    &::after {
+                        content: url("../img/index/torch.svg");
+                        position: relative;
+                        top: 3px;
+                        left: 2px;
+                    }
+                }
+
+                // .welcome-block__text
+                &__text {
+                    margin-bottom: 5px;
+                }
+
+                // .welcome-block__subtext
+                &__subtext {
+                    margin-bottom: 30px;
+                }
+
+                p {
+                    line-height: 28px;
+                }
+
+                button {
+                    // margin-bottom: 15px;
+                    white-space:nowrap;
+                    width: 100%;
+                    height: 45px;
+                }
+
+                // .welcome-block__btns
+                &__btns {
+                    align-items: center;
+                    max-width: 400px;
+
+                    .col {
+                        margin-bottom: 20px;
+                    }
+
+                    .welcome-block__btn-discord {
+                        background: #324E94;
+                        border: 2px solid #324E94;
+
+                        &:hover {
+                            border-color: $color-sub-bg;
+                            color: white;
+                            background: #1c3470;
+                        }
+                    }
+
+                }
+
+
+
+            }
+
+            .col-lg-6 {}
+
+            .text {}
+
+            .img-fluid {}
+
+            // ----------- КОНЕЦ ГЛАВНАЯ ------------
 
             .container__slider {
                 margin-bottom: 200px;

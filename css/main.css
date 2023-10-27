@@ -2,8 +2,8 @@
 /*Подключение шрифтов*/
 @import url("https://fonts.cdnfonts.com/css/baron-neue");
 @import url("https://fonts.cdnfonts.com/css/bebas-neue");
-@import url(https://db.onlinewebfonts.com/c/1dc8ecd8056a5ea7aa7de1db42b5b639?family=Gilroy-Regular);
 @import url("https://fonts.cdnfonts.com/css/furore");
+@import url("../fonts/Gilroy/stylesheet.css");
 /*Обнуление стилей*/
 /*Обнуление*/
 * {
@@ -79,16 +79,41 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.col {
+  margin: 0;
+  padding: 0;
+}
+
+.col-lg-6 {
+  margin: 0;
+  padding: 0;
+}
+
+.col-lg-12 {
+  margin: 0;
+  padding: 0;
+}
+
+.col-sm-12 {
+  margin: 0;
+  padding: 0;
+}
+
 /*Шрифты*/
 /*Палитра цветов*/
 * {
   color: #ccdedb;
-  font-family: "Gilroy-Regular";
+  font-family: Gilroy Light;
   font-size: 17px;
   font-style: normal;
-  font-weight: 400;
-  line-height: "";
-  letter-spacing: "";
+  font-weight: normal;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
 }
 
 .logo .logo__title {
@@ -103,49 +128,49 @@ h1, h2, h3, h4, h5, h6 {
 
 .text, button {
   color: #ccdedb;
-  font-family: "Gilroy-Regular";
+  font-family: Gilroy Light;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 1.36px;
+  line-height: 1.82;
+  letter-spacing: 0.1em;
 }
 
-.title-blue {
+body main .container_main .welcome-block__title, .title-blue {
   color: #28b8af;
-  font-family: "Gilroy-Regular";
-  font-size: calc(19px + 0.8333333333vw);
+  font-family: Gilroy Regular;
+  font-size: calc(21px + 0.8333333333vw);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
-  letter-spacing: 1.4px;
+  letter-spacing: 0.11em;
 }
 
-.title-white {
+body main .container_main .welcome-block__subtitle, .title-white {
   color: #fff;
   font-family: "Baron Neue";
   font-size: calc(19px + 0.3125vw);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
 }
 
 .subtitle {
   color: #fff;
-  font-family: "Gilroy-Regular";
-  font-size: calc(19px + 0.15625vw);
+  font-family: Gilroy Regular;
+  font-size: calc(8px + 0.8333333333vw);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
-  letter-spacing: 0.88px;
+  letter-spacing: 0.1em;
 }
 
 a,
 nav-item {
   color: #fff;
-  font-family: "Gilroy-Regular";
-  font-size: 16px;
+  font-family: Gilroy Light;
+  font-size: calc(9px + 0.3125vw);
   font-style: normal;
   font-weight: 400;
   line-height: "";
@@ -156,10 +181,23 @@ button {
   background-color: #28b8af;
   color: #ffffff;
   border-radius: 5px !important;
+  border: 2px solid #28b8af;
+  padding: 3px 10px;
   transition: 0.2s ease;
 }
 button:hover {
   background-color: #138f87;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #ccdedb;
+  transition: 0.2s ease;
+}
+.btn-outline:hover {
+  border-color: #28b8af;
+  color: #28b8af;
+  background: transparent;
 }
 
 a {
@@ -318,8 +356,8 @@ body main .container {
 body main .container_main {
   position: relative;
   padding-top: 20px;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 body main .container_main::before, body main .container_main::after {
   content: "";
@@ -398,6 +436,58 @@ body main .container_main .container__activity-info .activity-properties .activi
 }
 body main .container_main .container__activity-info .activity-properties .activity-properties__admin-text {
   margin-bottom: 15px;
+}
+body main .container_main .welcome-block {
+  padding-top: 40px;
+  justify-content: center;
+  align-items: center;
+}
+body main .container_main .welcome-block__title {
+  font-size: 60px;
+  font-weight: 500;
+  letter-spacing: 0em;
+}
+body main .container_main .welcome-block__subtitle {
+  font-size: calc(65px + 0.8333333333vw);
+  color: #28b8af;
+  margin-left: -1.98px;
+  margin-bottom: 40px;
+}
+body main .container_main .welcome-block__subtitle::after {
+  content: url("../img/index/torch.svg");
+  position: relative;
+  top: 3px;
+  left: 2px;
+}
+body main .container_main .welcome-block__text {
+  margin-bottom: 5px;
+}
+body main .container_main .welcome-block__subtext {
+  margin-bottom: 30px;
+}
+body main .container_main .welcome-block p {
+  line-height: 28px;
+}
+body main .container_main .welcome-block button {
+  white-space: nowrap;
+  width: 100%;
+  height: 45px;
+}
+body main .container_main .welcome-block__btns {
+  align-items: center;
+  max-width: 400px;
+}
+body main .container_main .welcome-block__btns .col {
+  margin-bottom: 20px;
+}
+body main .container_main .welcome-block__btns .welcome-block__btn-discord {
+  background: #324E94;
+  border: 2px solid #324E94;
+}
+body main .container_main .welcome-block__btns .welcome-block__btn-discord:hover {
+  border-color: #152a36;
+  color: white;
+  background: #1c3470;
 }
 body main .container_main .container__slider {
   margin-bottom: 200px;
