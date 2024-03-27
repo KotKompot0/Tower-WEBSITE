@@ -1,0 +1,120 @@
+@import "@/sass/fonts/Gilroy/stylesheet";
+@import "@/sass/fonts/BaronNeue/style";
+@import "@/sass/fonts/AlegreyaSans/stylesheet";
+@import "@/sass/fonts/Furore/stylesheet";
+
+@mixin fontStyle($color,
+    $font-family,
+    $font-size,
+    $font-style: normal,
+    $font-weight: 400,
+    $line-height: "",
+    $letter-spacing: ""
+
+) {
+    color: $color;
+    font-family: $font-family;
+    font-size: $font-size;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+* {
+    @include fontStyle($color-light-blue, $font-text, calc(14px + 3 * (100vw - 320px) / 1140), normal, normal, 1.4, 0.050em);
+}
+
+%logoFont {
+    @include fontStyle($color-white, $font-logo, 20px, $line-height: 1.12);
+}
+
+%textFont {
+    @include fontStyle($color-light-blue, $font-text, calc(14px + 3 * (100vw - 320px) / 1140), normal, 400, 1.82, 0.1em);
+}
+
+%fontTitlePage {
+    @include fontStyle($color-blue, $font-title-page, calc(30px + 5 * (100vw - 320px) / 1140), normal, 600, normal, 0.11em);
+}
+
+%fontTitleBlock {
+    @include fontStyle($color-white, $font-title-block, calc(20px + 5 * (100vw - 320px) / 1140), normal, 400, normal, 0.050em);
+}
+
+%fontSubtitleBlock {
+    @include fontStyle($color-white, $font-subtitle-page, calc(17px + 5 * (100vw - 320px) / 1140), normal, 600, normal, 0.1em);
+}
+
+%fontA {
+    @include fontStyle($color-white, $font-text, calc(12px + 2 * (100vw - 320px) / 1140));
+}
+
+%styleA {
+    @extend %fontA;
+    color: #ffffff !important;
+    transition: 0.2s ease;
+
+    &:hover {
+        color: $color-blue !important;
+    }
+}
+
+.noHover {
+    pointer-events: none;
+}
+
+.text {
+    @extend %textFont;
+}
+
+.text-color-blue {
+    color: $color-blue;
+}
+
+.text_span {
+    color: $color-white;
+    font-weight: 500;
+}
+
+.title-blue {
+    text-align: center;
+    @extend %fontTitlePage;
+}
+
+.title-white {
+    text-align: center;
+    @extend %fontTitleBlock;
+}
+
+.subtitle {
+    @extend %fontSubtitleBlock;
+}
+
+a,
+nav-item {
+    @extend %styleA;
+}
+
+h1 {
+    font-size: calc(36px + 5 * (100vw - 320px) / 1140) ;
+}
+
+h2 {
+    font-size: calc(32px + 5 * (100vw - 320px) / 1140) ;
+}
+
+h3 {
+    font-size: calc(28px + 5 * (100vw - 320px) / 1140) ;
+}
+
+h4 {
+    font-size: calc(24px + 5 * (100vw - 320px) / 1140) ;
+}
+
+h5 {
+    font-size: calc(20px + 5 * (100vw - 320px) / 1140) ;
+}
+
+h6 {
+    font-size: calc(16px + 5 * (100vw - 320px) / 1140) ;
+}

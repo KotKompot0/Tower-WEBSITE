@@ -1,0 +1,42 @@
+.game-card-evil {
+    position: relative;
+    z-index: 3;
+    background: #223C4B;
+    width: 220px;
+    height: 270px;
+    flex-shrink: 0;
+    border: 1px solid #45C6B1;
+    border-radius: 10px;
+    padding: 15px;
+    word-wrap: break-word; 
+}
+
+.game-card-evil__wrapper {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    height: 100%;
+}
+
+.game-card-evil__horns {
+    position: absolute;
+    z-index: 4;
+    top: -40px;
+    left: 15.5%;
+}
+
+.game-card-evil__tail {
+    position: absolute;
+    z-index: 1;
+    bottom: 5px;
+    left: 0;
+}
+
+.game-card-evil__text {
+    color: #CCDEDB;
+    font-family: "Alegreya Sans Regular";
+    font-size: 1em;
+    line-height: 20px;
+    letter-spacing: 0.28px;
+}
+

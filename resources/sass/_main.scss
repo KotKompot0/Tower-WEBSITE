@@ -1,0 +1,15 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    //min-height: 100vh;
+    margin-bottom: 350px;
+    background: $color-bg;
+}
+section {
+    margin-bottom: 40px;
+}
+ul {
+    padding-left: 30px !important;
+}
