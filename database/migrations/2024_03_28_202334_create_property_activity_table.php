@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('property_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('value');
             $table->softDeletes();
             $table->timestamps();
         });
