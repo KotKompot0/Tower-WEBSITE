@@ -22,7 +22,7 @@ const routes = [
             {
                 name: 'IndexActivities',
                 path: '/activities',
-                redirect: '/activities/nri',
+                redirect: '/activities/nri', // костыль ибо может ваще не быть НРИ
                 component: () => import('@js/pages/Activity.vue'),
             },
             {

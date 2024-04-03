@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('title', 50)->unique();
-            $table->json('description');
-            $table->binary('photo_preview');
-            $table->binary('photo');
-            $table->binary('icon');
             $table->foreignId('admin_id')->nullable()->constrained(table: 'users', indexName: 'id');
+            $table->json('description')->nullable();
+            $table->string('photo_preview');
+            $table->string('photo_round');
+            $table->string('icon');
             $table->string('slug')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();

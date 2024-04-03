@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('property_activity', function (Blueprint $table) {
+        Schema::create('activity_property', function (Blueprint $table) {
             $table->id();
             $table->foreignId('property_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('property_activity', function (Blueprint $table) {
+        Schema::table('activity_property', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }

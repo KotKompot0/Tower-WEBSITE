@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50)->unique();
             $table->mediumText('description');
-            $table->binary('photo');
+            $table->string('photo');
             $table->softDeletes();
             $table->timestamps();
         });
