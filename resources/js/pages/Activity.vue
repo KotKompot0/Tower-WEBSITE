@@ -3,7 +3,7 @@
 
     <div class="row activity-info mb-5">
         <div class="col-xl-6 col-sm-12 activity-preview">
-            <img src="@/img/activities/nri/activity-nri-preview.svg" class="" alt="activity-nri-preview">
+            <img src="@/img/activities/nri/nri-round.svg" class="" alt="activity-nri-preview">
         </div>
         <div class="col-xl-6 col-sm-12 activity-properties">
             <div class="row">
@@ -117,13 +117,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="@/img/activities/nri/nri1.png" class="d-block w-100" alt="...">
+                    <img src="@/img/activities/nri/nri-slider-1.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="@/img/activities/nri/nri2.png" class="d-block w-100" alt="...">
+                    <img src="@/img/activities/nri/nri-slider-2.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="@/img/activities/nri/nri3.png" class="d-block w-100" alt="...">
+                    <img src="@/img/activities/nri/nri-slider-3.png" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

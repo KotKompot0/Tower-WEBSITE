@@ -12,13 +12,16 @@
 export default {
     name: 'activity-item',
     props: {
-        photo: {
-            type: String
-        },
+        photo: {type: String},
     },
     methods: {
         getImageUrl() {
-            return new URL(`../../../img/index/activities/${this.photo}`, import.meta.url)
+            //
+            // let isFakeImg = this.photo[0] === 'h'; // колхоз - переделать!!!
+            //
+            // if (isFakeImg)
+            //     return new URL(`${this.photo}`, import.meta.url)
+            return new URL(`../../../img/${this.photo}`, import.meta.url)
         }
 
     }

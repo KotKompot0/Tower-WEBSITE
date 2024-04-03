@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->binary('photo');
+            $table->string('photo');
             $table->foreignId('activity_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();

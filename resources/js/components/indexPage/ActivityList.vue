@@ -4,26 +4,26 @@
             <div class="col-xl-6 col-md-12">
                 <div class="row">
                     <div class="col-12 block-activities__col">
-                        <activity-item @click.prevent="$router.push('/activities/nri')" class="activity-item_lg" photo="nri.jpg"> НРИ</activity-item>
+                        <activity-item @click.prevent="$router.push('/activities/nri')" class="activity-item_lg" photo="nri-preview.jpg"> НРИ</activity-item>
                     </div>
                     <div class="col-6 block-activities__col">
-                        <activity-item class="activity-item_sm" photo="other.png"> Другое</activity-item>
+                        <activity-item class="activity-item_sm" photo="other-preview.png"> Другое</activity-item>
                     </div>
                     <div class="col-6 block-activities__col">
-                        <activity-item class="activity-item_sm" photo="games.png"> Игры</activity-item>
+                        <activity-item class="activity-item_sm" photo="game-preview.png"> Игры </activity-item>
                     </div>
                 </div>
             </div>
             <div class="col-xl-6 col-md-12">
                 <div class="row">
                     <div class="col-6 block-activities__col">
-                        <activity-item class="activity-item_sm" photo="minecraft.png"> Minecraft</activity-item>
+                        <activity-item class="activity-item_sm" photo="minecraft-preview.png"> Minecraft</activity-item>
                     </div>
                     <div class="col-6 block-activities__col">
-                        <activity-item class="activity-item_sm" photo="jackbox.png"> Jackbox</activity-item>
+                        <activity-item class="activity-item_sm" photo="jackbox-preview.png"> Jackbox</activity-item>
                     </div>
                     <div class="col-12 block-activities__col">
-                        <activity-item class="activity-item_lg" photo="board-games.png"> Настолки</activity-item>
+                        <activity-item class="activity-item_lg" photo="board-games-preview.png"> Настолки</activity-item>
                     </div>
                 </div>
             </div>
