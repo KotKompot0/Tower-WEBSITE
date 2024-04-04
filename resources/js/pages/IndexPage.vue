@@ -34,7 +34,8 @@
     </section>
     <my-hr></my-hr>
     <title-white class="block-about__title-white mb-5"> наши активности </title-white>
-    <activity-list></activity-list>
+    <activity-list v-if="activities" :activities="activities"></activity-list>
+
     <title-white class="block-about__title-white mb-5"> Что вы найдете у нас? </title-white>
     <section class="block-about">
         <div class="row gx-3 justify-content-between">
@@ -89,8 +90,28 @@ import AboutCard from "../components/indexPage/AboutCard.vue";
 import {ref} from "vue";
 
 export default {
-    methods: {ref},
-    components: {ActivityItem, ActivityList, AboutCard}
+    components: {ActivityItem, ActivityList, AboutCard},
+
+    data () {
+        return {
+            activities: ref(0),
+        }
+    },
+
+    mounted() {
+        this.getActivities();
+        console.log('hello');
+    },
+    methods: {
+        getActivities () {
+            axios.get('/api/activities').then(res => {
+                console.log(res.data.data[0].title);
+                this.activities = res.data.data;
+            })
+        },
+    },
+
+
 }
 </script>
 
