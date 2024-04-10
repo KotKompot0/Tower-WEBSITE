@@ -14,7 +14,7 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-        return ActivityResource::collection($activities);
+        return ActivityResource::collection($activities->keyBy->slug);
     }
 
     /**

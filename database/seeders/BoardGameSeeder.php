@@ -23,7 +23,7 @@ class BoardGameSeeder extends Seeder
             ],
             [
                 'title' => 'Алиас',
-                'description' => 'Другая лчень интересная игра про слова',
+                'description' => 'Другая очень интересная игра про слова',
                 'photo' => './resources/img/games/evil-cards/evil-cards.png',
                 'created_at'=> now(),
                 'updated_at'=> now(),

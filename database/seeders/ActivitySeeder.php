@@ -94,7 +94,7 @@ class ActivitySeeder extends Seeder
                 ]),
                 'photo_preview' => 'activities/games/game-preview.png',
                 'photo_round' => 'activities/games/game-round.png',
-                'icon' => 'i-game.svg',
+                'icon' => 'i-games.svg',
                 'slug' => 'games',
                 'created_at' => now(),
                 'updated_at' => now(),

@@ -1,65 +1,55 @@
 <template>
     <section class="block-activities">
         <div class="row gx-4">
-            <div class="col-xl-6 col-md-12">
+
+            <div v-if="countActivities < 6" class="col-xl-6 col-md-12">
                 <div class="row">
-                    <div v-for="(activity, index) in activities.slice(0, 3)" :key="activity.id" :class="['block-activities__col', [index < 1 ? 'col-12' : 'col-6']]">
-                        <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" :class="[index < 1 ? 'activity-item_lg' : 'activity-item_sm']"  class="" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>
+                    <div v-for="activity in activities" :key="activity.id" class="block-activities__col col-6">
+                        <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" class="activity-item_sm" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 col-md-12">
-                <div class="row">
-                    <div v-for="(activity, index) in activities.slice(3, 6)" :key="activity.id" :class="['block-activities__col', [index < 2  ? 'col-6' : 'col-12']]">
-                        <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" :class="[index < 2 ? 'activity-item_sm' : 'activity-item_lg']"  class="" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>
+
+            <template v-else>
+                <div class="col-xl-6 col-md-12">
+                    <div class="row">
+                        <div v-for="(activity,, index) in displayActivities(1)" :key="activity.id" :class="['block-activities__col', [index === 0 ? 'col-12' : 'col-6']]">
+                            <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" :class="[index === 0 ? 'activity-item_lg' : 'activity-item_sm']" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-xl-6 col-md-12">
+                    <div class="row">
+                        <div v-for="(activity,, index) in displayActivities(2)" :key="activity.id" :class="['block-activities__col', [index === 2 ? 'col-12' : 'col-6']]">
+                            <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" :class="[index === 2 ? 'activity-item_lg' : 'activity-item_sm']" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>
+                        </div>
+                    </div>
+                </div>
+            </template>
         </div>
     </section>
 </template>
-
-
-<!--<template>-->
-<!--    <section class="block-activities">-->
-<!--        <div class="row gx-4">-->
-<!--            <div class="col-xl-6 col-md-12">-->
-<!--                <div class="row">-->
-
-<!--                    <div v-for="(activity, index) in activities.slice(0, 3)" :key="activity.id" :class="['block-activities__col', [index < 1 ? 'col-12' : 'col-6']]">-->
-<!--                        <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" :class="[index < 1 ? 'activity-item_lg' : 'activity-item_sm']"  class="" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash;                    <div class="col-12 block-activities__col">-->
-<!--                                            <activity-item @click.prevent="$router.push('/activities/nri')" class="activity-item_lg" photo="nri-preview.jpg"> НРИ</activity-item>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-6 block-activities__col">-->
-<!--                                            <activity-item class="activity-item_sm" photo="other-preview.png"> Другое</activity-item>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-6 block-activities__col">-->
-<!--                                            <activity-item class="activity-item_sm" photo="game-preview.png"> Игры </activity-item>-->
-<!--                                        </div>&ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-xl-6 col-md-12">-->
-<!--                <div class="row">-->
-<!--                    <div v-for="(activity, index) in activities.slice(3, 6)" :key="activity.id" :class="['block-activities__col', [index < 2  ? 'col-6' : 'col-12']]">-->
-<!--                        <activity-item @click.prevent="$router.push(`/activities/${activity.slug}`)" :class="[index < 2 ? 'activity-item_sm' : 'activity-item_lg']"  class="" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--</template>-->
-
 <script>
 import ActivityItem from "./ActivityItem.vue";
-
 export default {
     components: {ActivityItem},
     props: {
         activities: {type: JSON},
+    },
+
+    computed:{
+        countActivities() {
+            return Object.keys(this.activities).length
+        }
+    },
+
+    methods: {
+        displayActivities(partOfActivities) {
+            if (partOfActivities === 1 && this.activities)
+                return Object.fromEntries(Object.entries(this.activities).slice(0, 3));
+            else if (partOfActivities === 2 && this.activities)
+                return Object.fromEntries(Object.entries(this.activities).slice(3, 6));
+        }
     }
 }
 </script>

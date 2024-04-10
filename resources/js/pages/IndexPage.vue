@@ -14,10 +14,10 @@
 
             <div class="row block-welcome__btns">
                 <div class="col pe-2">
-                    <btn-outline class="block-welcome__btn-details"> Подробнее</btn-outline>
+                    <btn-outline @click.prevent="$router.push({ name: 'about' })" class="block-welcome__btn-details"> Подробнее</btn-outline>
                 </div>
                 <div class="col">
-                    <btn-filled class="block-welcome__btn-games"> Наши веб-игры</btn-filled>
+                    <btn-filled  @click.prevent="$router.push({ name: 'games' })" class="block-welcome__btn-games"> Наши веб-игры</btn-filled>
                 </div>
                 <div class="col">
                     <btn-filled class="block-welcome__btn-discord">
@@ -87,25 +87,21 @@
 import ActivityItem from "../components/indexPage/ActivityItem.vue";
 import ActivityList from "../components/indexPage/ActivityList.vue";
 import AboutCard from "../components/indexPage/AboutCard.vue";
-import {ref} from "vue";
-
 export default {
     components: {ActivityItem, ActivityList, AboutCard},
 
     data () {
         return {
-            activities: ref(0),
+            activities: JSON,
         }
     },
 
     mounted() {
         this.getActivities();
-        console.log('hello');
     },
     methods: {
         getActivities () {
             axios.get('/api/activities').then(res => {
-                console.log(res.data.data[0].title);
                 this.activities = res.data.data;
             })
         },

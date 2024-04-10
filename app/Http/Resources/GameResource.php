@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ActivityResource extends JsonResource
+class GameResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -26,13 +26,7 @@ class ActivityResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'photo_preview' => $this->photo_preview,
-            'photo_round' => $this->photo_round,
-            'properties' => PropertyResource::collection($this->properties),
-            'sliders' => SliderResource::collection($this->sliders),
-            'user_admin' => new UserResource($this->user),
-            'icon' => $this->icon,
-            'slug' => $this->slug,
+            'photo' => $this->photo,
         ];
     }
 }

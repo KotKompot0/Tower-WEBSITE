@@ -4,9 +4,9 @@
             <div class="footer__items">
                 <logo></logo>
                 <div class="footer__hyperlinks">
-                    <a href="#">Активности</a>
-                    <a href="#">Веб-игры</a>
-                    <a href="#">О нас</a>
+                    <router-link class="" to="/activities"> Активности</router-link>
+                    <router-link class="" to="/games"> Веб-игры</router-link>
+                    <router-link class="" to="/about"> О нас</router-link>
                 </div>
             </div>
             <hr>

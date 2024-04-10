@@ -1,12 +1,34 @@
 <template>
     <title-blue> Наши активности </title-blue>
-    <activity-select-list></activity-select-list>
+    <activity-select-list :activities="activities"></activity-select-list>
 
-    <router-view></router-view>
+    <router-view v-if="activities" :activities="this.activities"></router-view>
 </template>
 
-<script setup>
-import ActivitySelectList from "@js/components/activitiesPage/ActivitySelectList.vue";
+<script>
+
+import {ref} from "vue";
+import ActivitySelectList from "../components/activitiesPage/ActivitySelectList.vue";
+import router from "../router/router.js";
+
+export default {
+    components: {ActivitySelectList},
+    data() {
+        return {
+            activities: null,
+        }
+    },
+    mounted() {
+        this.getActivities();
+    },
+    methods: {
+        getActivities() {
+            axios.get('/api/activities').then(res => {
+                this.activities = res.data.data
+            })
+        },
+    },
+}
 </script>
 
 <style scoped lang="scss">

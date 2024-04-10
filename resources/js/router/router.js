@@ -4,27 +4,25 @@ import cookies from "vue-cookies";
 const routes = [
     {
         path: '/',
+        name: 'home',
         component: () => import('@js/pages/IndexPage.vue')
     },
     {
         path: '/games',
+        name: 'games',
         component: () => import('@js/pages/GamesPage.vue')
     },
     {
         path: '/about',
+        name: 'about',
         component: () => import('@js/pages/AboutPage.vue')
     },
     {
         path: '/activities',
         name: 'Activities',
+        redirect: '/activities/nri', // как переделаешь на vuex надо динамически подгружать активити дефолтное
         component: () => import('@js/pages/ActivitiesPage.vue'),
         children: [
-            {
-                name: 'IndexActivities',
-                path: '/activities',
-                redirect: '/activities/nri', // костыль ибо может ваще не быть НРИ
-                component: () => import('@js/pages/Activity.vue'),
-            },
             {
                 name: 'Activity',
                 path: '/activities/:activityName',

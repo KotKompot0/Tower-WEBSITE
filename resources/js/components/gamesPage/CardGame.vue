@@ -1,13 +1,10 @@
 <template>
-    <card class="card-game">
+    <card class="card-game mb-5">
         <div class="card-game__items">
             <a href=""><img class="me-4" src="@/img/games/evil-cards/evil-cards.png" alt="evil-cards"></a>
             <div class="">
-                <a href="">500 злобных карт</a>
-                <p class="mb-4">
-                    Нецензурная, саркастическая игра, где игроки создают шокирующие и смешные предложения,
-                    выбирая карты с различными фразами. Цель - вызвать смех и удивление среди друзей.
-                </p>
+                <a href=""> {{game.title}} </a>
+                <p class="mb-4"> {{game.description}} </p>
                 <btn-filled class="card-game__btn-play"> Играть </btn-filled>
             </div>
         </div>
@@ -18,9 +15,7 @@
 export default {
     name: 'card-game',
     props: {
-        title: {
-            type: String
-        },
+        game: {type: Object},
     },
 }
 </script>

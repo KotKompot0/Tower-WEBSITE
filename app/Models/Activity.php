@@ -51,6 +51,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Activity withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Activity withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Activity withoutTrashed()
+ * @property string $photo_round
+ * @method static \Illuminate\Database\Eloquent\Builder|Activity wherePhotoRound($value)
  * @mixin \Eloquent
  */
 class Activity extends Model
@@ -73,7 +75,7 @@ class Activity extends Model
     }
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'admin_id');
     }
 
     public function sluggable(): array
