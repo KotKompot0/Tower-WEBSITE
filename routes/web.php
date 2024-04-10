@@ -19,4 +19,4 @@ Auth::routes();
 Route::get('{any?}',  IndexController::class)->where('any', '.*');
 
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/test', [\App\Http\Controllers\ActivityController::class, 'index'])->name('test');

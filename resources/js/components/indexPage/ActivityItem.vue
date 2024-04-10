@@ -16,11 +16,6 @@ export default {
     },
     methods: {
         getImageUrl() {
-            //
-            // let isFakeImg = this.photo[0] === 'h'; // колхоз - переделать!!!
-            //
-            // if (isFakeImg)
-            //     return new URL(`${this.photo}`, import.meta.url)
             return new URL(`../../../img/${this.photo}`, import.meta.url)
         }
 

@@ -1,29 +1,11 @@
 <template>
     <div class="wrapper">
         <div class="row select-activities">
-            <router-link class="col col-xxl-auto col-sm-6" :to="{name: 'Activity', params: {activityName: 'nri'}}">
-                <activity-select-item img="i-nri.svg"> НРИ</activity-select-item>
+            <router-link v-for="activity in activities" :key="activity.id" class="col col-xxl-auto col-sm-6"
+                         :to="{name: 'Activity', params: {activityName: activity.slug}}">
+                <activity-select-item :img="activity.icon"> {{ activity.title }}</activity-select-item>
             </router-link>
 
-            <router-link class="col col-xxl-auto col-sm-6" :to="{name: 'Activity', params: {activityName: 'minecraft'}}">
-                <activity-select-item img="i-minecraft.svg"> Minecraft</activity-select-item>
-            </router-link>
-
-            <router-link class="col col-xxl-auto col-sm-6" :to="{name: 'Activity', params: {activityName: 'games'}}">
-                <activity-select-item img="i-games.svg"> Игры</activity-select-item>
-            </router-link>
-
-            <router-link class="col col-xxl-auto col-sm-6" :to="{name: 'Activity', params: {activityName: 'board-games'}}">
-                <activity-select-item img="i-board-games.svg"> Настолки</activity-select-item>
-            </router-link>
-
-            <router-link class="col col-xxl-auto col-sm-6" :to="{name: 'Activity', params: {activityName: 'jackbox'}}">
-                <activity-select-item img="i-jackbox.svg"> Джекбокс</activity-select-item>
-            </router-link>
-
-            <router-link class="col col-xxl-auto col-sm-6" :to="{name: 'Activity', params: {activityName: 'other'}}">
-                <activity-select-item img="i-other.svg"> Прочее</activity-select-item>
-            </router-link>
         </div>
     </div>
 
@@ -33,7 +15,11 @@
 import ActivitySelectItem from "./ActivitySelectItem.vue";
 
 export default {
-    components: {ActivitySelectItem}
+    components: {ActivitySelectItem},
+
+    props: {
+        activities: {type: JSON},
+    },
 }
 </script>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBoardGameRequest;
 use App\Http\Requests\UpdateBoardGameRequest;
+use App\Http\Resources\GameResource;
 use App\Models\BoardGame;
 
 class BoardGameController extends Controller
@@ -13,7 +14,9 @@ class BoardGameController extends Controller
      */
     public function index()
     {
-        //
+        $boardGames = BoardGame::all();
+
+        return GameResource::collection($boardGames);
     }
 
     /**

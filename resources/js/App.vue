@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     mounted() {
         this.getToken();
@@ -67,6 +69,10 @@ button {
     @extend %textFont;
     transition: 0.2s ease;
 }
+.bg-color {
+    background: $color-blue;
+}
+
 </style>
 
 <style scoped lang="scss">
@@ -149,10 +155,4 @@ header {
     left: auto;
     right: 1%;
 }
-
-
-//.wrapper {
-//    position: relative;
-//}
-
 </style>

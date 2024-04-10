@@ -1,13 +1,33 @@
 <template>
     <title-blue> Наши игры </title-blue>
 
-    <card-game></card-game>
+    <card-game v-for="game in games" :game="game"></card-game>
 
     <btn-filled class="btn-boosty"><img src="@/img/i-boosty.svg"> Boosty</btn-filled>
 </template>
 
-<script setup>
+<script>
+import axios from "axios";
 import CardGame from "../components/gamesPage/CardGame.vue";
+export default {
+    components: {CardGame},
+    data() {
+        return {
+            games: null,
+        }
+    },
+    mounted() {
+        this.getGames()
+    },
+    methods: {
+        getGames() {
+            axios.get('/api/games').then(res => {
+                this.games = res.data.data;
+                // console.log(this.games);
+            })
+        },
+    }
+}
 </script>
 
 <style lang="scss">

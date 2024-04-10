@@ -14,10 +14,10 @@
 
             <div class="row block-welcome__btns">
                 <div class="col pe-2">
-                    <btn-outline class="block-welcome__btn-details"> Подробнее</btn-outline>
+                    <btn-outline @click.prevent="$router.push({ name: 'about' })" class="block-welcome__btn-details"> Подробнее</btn-outline>
                 </div>
                 <div class="col">
-                    <btn-filled class="block-welcome__btn-games"> Наши веб-игры</btn-filled>
+                    <btn-filled  @click.prevent="$router.push({ name: 'games' })" class="block-welcome__btn-games"> Наши веб-игры</btn-filled>
                 </div>
                 <div class="col">
                     <btn-filled class="block-welcome__btn-discord">
@@ -34,7 +34,8 @@
     </section>
     <my-hr></my-hr>
     <title-white class="block-about__title-white mb-5"> наши активности </title-white>
-    <activity-list></activity-list>
+    <activity-list v-if="activities" :activities="activities"></activity-list>
+
     <title-white class="block-about__title-white mb-5"> Что вы найдете у нас? </title-white>
     <section class="block-about">
         <div class="row gx-3 justify-content-between">
@@ -86,11 +87,27 @@
 import ActivityItem from "../components/indexPage/ActivityItem.vue";
 import ActivityList from "../components/indexPage/ActivityList.vue";
 import AboutCard from "../components/indexPage/AboutCard.vue";
-import {ref} from "vue";
-
 export default {
-    methods: {ref},
-    components: {ActivityItem, ActivityList, AboutCard}
+    components: {ActivityItem, ActivityList, AboutCard},
+
+    data () {
+        return {
+            activities: JSON,
+        }
+    },
+
+    mounted() {
+        this.getActivities();
+    },
+    methods: {
+        getActivities () {
+            axios.get('/api/activities').then(res => {
+                this.activities = res.data.data;
+            })
+        },
+    },
+
+
 }
 </script>
 

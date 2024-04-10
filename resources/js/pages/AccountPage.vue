@@ -1,9 +1,6 @@
 <template>
     <title-blue> Account page </title-blue>
-<!--    <h4> Привет, {{ user.name }}!</h4>-->
-    <div v-if="activity.photo_preview" class="col-12 block-activities__col">
-        <activity-item @click.prevent="$router.push('/activities/nri')" class="activity-item_lg" :photo="activity.photo_preview"> {{ activity.title }} </activity-item>
-    </div>
+    <h4> Привет, {{ user.username }}!</h4>
 
 </template>
 
@@ -17,20 +14,15 @@ export default  {
     data() {
         return {
            user: [],
-           activity: [],
         }
     },
     mounted() {
-        this.getData()
-
-        // console.log(this.$cookies.get('laravel_session'));
-
+        this.getUser()
     },
     methods: {
-        getData () {
+        getUser () {
             axios.get('/api/user/account').then(res => {
-                this.activity = res.data;
-                // this.user = res.data;
+                this.user = res.data;
             })
         }
     }
