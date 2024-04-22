@@ -3,9 +3,8 @@
         <div class="row select-activities">
             <router-link v-for="activity in activities" :key="activity.id" class="col col-xxl-auto col-sm-6"
                          :to="{name: 'Activity', params: {activityName: activity.slug}}">
-                <activity-select-item :img="activity.icon"> {{ activity.title }}</activity-select-item>
+                <activity-select-item :icon="activity.icon"> {{ activity.title }}</activity-select-item>
             </router-link>
-
         </div>
     </div>
 

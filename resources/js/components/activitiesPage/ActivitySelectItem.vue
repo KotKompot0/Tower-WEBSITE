@@ -1,7 +1,7 @@
 <template>
     <div class="activity-select-item">
         <div class="activity-select-item__line"></div>
-        <img class="activity-select-item__img" :src="getImageUrl()" alt="nri">
+        <img class="activity-select-item__img" :src="`/storage/${icon}`" alt="nri">
         <p class="activity-select-item__text">
             <slot></slot>
         </p>
@@ -12,16 +12,10 @@
 export default {
     name: 'activity-select-item',
     props: {
-        img: {
+        icon: {
             type: String
         },
     },
-    methods: {
-        getImageUrl() {
-            return new URL(`../../../img/activities/${this.img}`, import.meta.url)
-        }
-
-    }
 }
 </script>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,7 @@ Auth::routes();
 
 Route::get('{any?}',  IndexController::class)->where('any', '.*');
 
+
+Route::post('/image/store', [ImageController::class, 'store'])->name('image.store');
 
 //Route::get('/test', [\App\Http\Controllers\ActivityController::class, 'index'])->name('test');

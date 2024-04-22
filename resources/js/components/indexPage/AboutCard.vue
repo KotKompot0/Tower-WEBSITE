@@ -8,7 +8,7 @@
         </div>
 
         <div class="d-flex justify-content-center align-items-center">
-            <img :src="getImageUrl()" height="75" alt="">
+            <img :src="img" height="75" alt="">
         </div>
     </div>
 </template>
@@ -23,12 +23,6 @@ export default {
             type: String
         }
     },
-    methods: {
-        getImageUrl() {
-            return new URL(`../../../img/index/${this.img}`, import.meta.url)
-        }
-
-    }
 }
 </script>
 

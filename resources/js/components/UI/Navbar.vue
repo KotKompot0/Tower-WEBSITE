@@ -7,7 +7,7 @@
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation">
-                <img src="@/img/i-menu.png" width="15" alt="">
+                <img :src="`/storage/static/i-menu.png`" width="15" alt="">
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -37,7 +37,7 @@
                     <li class="d-flex">
                         <li v-if="token" class="m-0 me-sm-2 d-flex flex-column justify-content-center">
                             <router-link class="py-0 pe-2" :to="{name: 'user.account'}"><img
-                                src="@/img/navbar/user-solid.svg" width="20" alt="user"></router-link>
+                                :src="`/storage/static/user-solid.svg`" width="20" alt="user"></router-link>
                         </li>
                         <li v-if="token" class=" me-0">
                             <a class="nav-link" href="#" @click.prevent="logout"> Выйти </a>

@@ -1,6 +1,6 @@
 <template>
     <div class="user-item">
-        <img :src="getImageUrl()" alt="">
+        <img :src="img"  alt="">
         <p class="text text-color-blue">
             <slot></slot>
         </p>
@@ -15,12 +15,6 @@ export default {
             type: String
         },
     },
-    methods: {
-        getImageUrl() {
-            return new URL(`../../../img/discord-avatars/${this.img}`, import.meta.url)
-        }
-
-    }
 }
 </script>
 

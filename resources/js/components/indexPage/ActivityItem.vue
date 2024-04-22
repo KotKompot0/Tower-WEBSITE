@@ -1,6 +1,6 @@
 <template>
     <a href="">
-        <img :src="getImageUrl()" class="block-activities__img block-activities__img_sm" alt="">
+        <img :src="`/storage/${photo}`" class="block-activities__img block-activities__img_sm" alt="">
         <p class="block-activities__img-text block-activities__img-text_sm">
             <slot></slot>
         </p>
@@ -14,12 +14,6 @@ export default {
     props: {
         photo: {type: String},
     },
-    methods: {
-        getImageUrl() {
-            return new URL(`../../../img/${this.photo}`, import.meta.url)
-        }
-
-    }
 }
 </script>
 

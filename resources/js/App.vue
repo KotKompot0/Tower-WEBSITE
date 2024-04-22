@@ -8,8 +8,8 @@
 
             <!-- Основной контент -->
             <div class="container my-container">
-                <img src="@/img/border-decor.svg" class="border-decor border-decor_left" alt="BorderDecor">
-                <img src="@/img/border-decor.svg" class="border-decor border-decor_right" alt="BorderDecor">
+                <img :src="`/storage/static/border-decor.svg`" class="border-decor border-decor_left" alt="BorderDecor">
+                <img :src="`/storage/static/border-decor.svg`" class="border-decor border-decor_right" alt="BorderDecor">
 
                 <router-view></router-view>
             </div>
@@ -55,7 +55,7 @@ export default {
     }
 
     &::before {
-        content: url("@/img/boosty-cat.svg");
+        content: url("/storage/static/boosty-cat.svg");
         position: absolute;
         top: -70px;
     }
@@ -139,7 +139,7 @@ header {
 .dragon-left,
 .dragon-right {
     position: fixed;
-    background-image: url('@/img/dragon.svg');
+    background-image: url('/storage/static/dragon.svg');
     background-repeat: no-repeat;
     width: 200px;
     height: 300px;

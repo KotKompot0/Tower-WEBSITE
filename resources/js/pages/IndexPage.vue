@@ -14,13 +14,17 @@
 
             <div class="row block-welcome__btns">
                 <div class="col pe-2">
-                    <btn-outline @click.prevent="$router.push({ name: 'about' })" class="block-welcome__btn-details"> Подробнее</btn-outline>
+                    <btn-outline @click.prevent="$router.push({ name: 'about' })" class="block-welcome__btn-details">
+                        Подробнее
+                    </btn-outline>
                 </div>
                 <div class="col">
-                    <btn-filled  @click.prevent="$router.push({ name: 'games' })" class="block-welcome__btn-games"> Наши веб-игры</btn-filled>
+                    <btn-filled @click.prevent="$router.push({ name: 'games' })" class="block-welcome__btn-games"> Наши
+                        веб-игры
+                    </btn-filled>
                 </div>
                 <div class="col">
-                    <btn-filled class="block-welcome__btn-discord">
+                    <btn-filled @click="redirectToDiscord" class="block-welcome__btn-discord">
                         <i class="fa-brands fa-discord fa-lg" style="color: #ffffff;"></i>
                         Discord-сервер
                     </btn-filled>
@@ -29,14 +33,14 @@
         </div>
 
         <div class="col-xl-6 col-lg-12 d-flex justify-content-center align-items-center">
-            <img src="@/img/index/tower.png" class="img-fluid" alt="Tower">
+            <img :src="`/storage/static/tower.png`" class="img-fluid" alt="Tower">
         </div>
     </section>
     <my-hr></my-hr>
-    <title-white class="block-about__title-white mb-5"> наши активности </title-white>
+    <title-white class="block-about__title-white mb-5"> наши активности</title-white>
     <activity-list v-if="activities" :activities="activities"></activity-list>
 
-    <title-white class="block-about__title-white mb-5"> Что вы найдете у нас? </title-white>
+    <title-white class="block-about__title-white mb-5"> Что вы найдете у нас?</title-white>
     <section class="block-about">
         <div class="row gx-3 justify-content-between">
             <div class="col-12 block-about__card-col">
@@ -52,45 +56,47 @@
                             </p>
                         </div>
                         <div class="col d-flex justify-content-center">
-                            <img src="@/img/index/knights.png" alt="">
+                            <img :src="`/storage/static/knights.png`" alt="">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class=" col-xl-4 col-lg-12 mb-5">
-                <about-card img="i-tower.svg" title="Этажи башни">
+                <about-card img="/storage/static/i-tower.svg" title="Этажи башни">
                     Мы растим башню вверх по количеству сфер интересов,
                     чтобы вы могли выбрать свой этаж, который будет вам интересен!
                 </about-card>
             </div>
 
             <div class=" col-xl-4 col-lg-12 mb-5">
-                <about-card img="i-lamp.svg" title="Раскрой таланты">
+                <about-card img="/storage/static/i-lamp.svg" title="Раскрой таланты">
                     Мы предлагаем комфортную атмосферу, которая
                     помогает отвлечься и раскрыть ваши таланты.
                 </about-card>
             </div>
 
             <div class=" col-xl-4 col-lg-12 mb-5">
-                <about-card img="i-people.svg" title="Влейся в коллектив">
+                <about-card img="/storage/static/i-people.svg" title="Влейся в коллектив">
                     В ваших руках развитие и наращивание этажей башни!
                     Не бойтесь предлагать и участвовать, а так же изучать этажи!
                 </about-card>
             </div>
         </div>
     </section>
-    <btn-filled class="btn-boosty"> <img src="@/img/i-boosty.svg"> Boosty </btn-filled>
+    <btn-boosty></btn-boosty>
 </template>
 
 <script>
 import ActivityItem from "../components/indexPage/ActivityItem.vue";
 import ActivityList from "../components/indexPage/ActivityList.vue";
 import AboutCard from "../components/indexPage/AboutCard.vue";
+import BtnBoosty from "../components/UI/BtnBoosty.vue";
+
 export default {
     components: {ActivityItem, ActivityList, AboutCard},
 
-    data () {
+    data() {
         return {
             activities: JSON,
         }
@@ -100,11 +106,14 @@ export default {
         this.getActivities();
     },
     methods: {
-        getActivities () {
+        getActivities() {
             axios.get('/api/activities').then(res => {
                 this.activities = res.data.data;
             })
         },
+        redirectToDiscord() {
+            window.location.href = 'https://discord.gg/bYjdJsK5ZH';
+        }
     },
 
 
@@ -134,7 +143,7 @@ export default {
         margin-bottom: 15px;
 
         &::after {
-            content: url("@/img/index/torch.svg");
+            content: url("/storage/static/torch.svg");
             position: relative;
             top: 2px;
             left: 2px;
@@ -185,6 +194,7 @@ export default {
     &__title-white {
         font-size: 1.7em;
     }
+
     &__card {
         background: $color-sub-bg;
         padding: 30px;
