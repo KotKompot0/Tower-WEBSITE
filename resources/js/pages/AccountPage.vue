@@ -1,5 +1,5 @@
 <template>
-    <title-blue> Account page </title-blue>
+    <title-blue> Профиль </title-blue>
     <h4> Привет, {{ user.username }}!</h4>
 
 </template>

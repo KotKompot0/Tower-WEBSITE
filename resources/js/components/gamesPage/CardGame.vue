@@ -1,7 +1,7 @@
 <template>
     <card class="card-game mb-5">
         <div class="card-game__items">
-            <a href=""><img class="me-4" src="@/img/games/evil-cards/evil-cards.png" alt="evil-cards"></a>
+            <a href=""><img class="me-4" :src="`/storage/${game.photo}`" alt="evil-cards"></a>
             <div class="">
                 <a href=""> {{game.title}} </a>
                 <p class="mb-4"> {{game.description}} </p>
@@ -22,6 +22,11 @@ export default {
 
 <style scoped lang="scss">
 .card-game {
+    img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
     &__items {
         display: flex;
         flex-direction: row;

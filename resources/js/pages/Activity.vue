@@ -3,10 +3,7 @@
     <h3 class="title-white mb-5 text-lowercase"> {{ activitySelected.title }} </h3>
     <div class="row activity-info mb-5">
         <div class="col-xl-6 col-sm-12 activity-preview">
-            <!--            я ваще без понятия как сделать эту херню с фотками !!!! -->
-            <p> Фотка разберись как грузить!!</p>
-            <img src="@/img/activities/nri/nri-round.svg" class="" alt="activity-round">
-
+            <img :src="`/storage/${ activitySelected.photo_round }`" class="" alt="activity-round">
         </div>
         <div class="col-xl-6 col-sm-12 activity-properties">
             <div class="row">
@@ -38,7 +35,8 @@
                     Вы можете написать администратору, чтобы
                     уточнить интересующие вас вопросы!
                 </p>
-                <user-item v-if="activitySelected && activitySelected.user_admin" :img="activitySelected.user_admin.photo">
+                <user-item v-if="activitySelected && activitySelected.user_admin"
+                           :img="`/storage/${activitySelected.user_admin.photo}`">
                     {{ activitySelected.user_admin.username }}
                 </user-item>
             </div>
@@ -58,41 +56,34 @@
 
     <my-hr></my-hr>
 
-<!--    <div class="row slider">-->
-<!--        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">-->
-<!--            <div class="carousel-indicators">-->
-<!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"-->
-<!--                        class="active " aria-current="true" aria-label="Slide 1"></button>-->
-<!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"-->
-<!--                        aria-label="Slide 2"></button>-->
-<!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"-->
-<!--                        aria-label="Slide 3"></button>-->
-<!--            </div>-->
-<!--            <div class="carousel-inner">-->
-<!--                <div class="carousel-item active">-->
-<!--                    <img src="@/img/activities/nri/nri-slider-1.png" class="d-block w-100" alt="...">-->
-<!--                </div>-->
-<!--                <div class="carousel-item">-->
-<!--                    <img src="@/img/activities/nri/nri-slider-2.png" class="d-block w-100" alt="...">-->
-<!--                </div>-->
-<!--                <div class="carousel-item">-->
-<!--                    <img src="@/img/activities/nri/nri-slider-3.png" class="d-block w-100" alt="...">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"-->
-<!--                    data-bs-slide="prev">-->
-<!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                <span class="visually-hidden">Previous</span>-->
-<!--            </button>-->
-<!--            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"-->
-<!--                    data-bs-slide="next">-->
-<!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                <span class="visually-hidden">Next</span>-->
-<!--            </button>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="row slider">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button v-for="index in activitySelected.sliders.length" :key="index" type="button"
+                        data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index - 1"
+                        :class="index === 1 ? 'active' : '' " aria-current="true" aria-label="Slide 1">
+                </button>
+            </div>
+            <div class="carousel-inner">
+                <div v-for="(slider, index) in activitySelected.sliders" :key="slider.id"
+                     :class="index === 0 ? 'active' : ''" class="carousel-item">
+                    <img :src="`/storage/${slider.photo}`" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 
-        <btn-filled class="btn-boosty"><img src="@/img/i-boosty.svg"> Boosty</btn-filled>
+    <btn-boosty></btn-boosty>
 </template>
 
 <script>
@@ -102,6 +93,8 @@ export default {
     components: {UserItem},
     props: {
         activities: {type: null},
+    },
+    mounted() {
     },
     computed: {
         activitySelected() {

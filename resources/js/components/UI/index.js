@@ -9,6 +9,7 @@ import TitleWhite from "./TitleWhite.vue";
 import Subtitle from "./Subtitle.vue";
 import UserItem from "./UserItem.vue";
 import MyFooter from "./MyFooter.vue";
+import BtnBoosty from "./BtnBoosty.vue";
 export default [
     Navbar,
     MyFooter,
@@ -20,5 +21,6 @@ export default [
     TitleWhite,
     Subtitle,
     Card,
-    UserItem
+    UserItem,
+    BtnBoosty,
 ]

@@ -1,5 +1,5 @@
 <template>
-    <img class="hr-line" src="@/img/hr-line.svg" width="25" height="25" alt="hr-line">
+    <img class="hr-line" :src="`/storage/static/hr-line.svg`" width="25" height="25" alt="hr-line">
 </template>
 
 <script>

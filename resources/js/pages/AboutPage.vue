@@ -1,6 +1,18 @@
 <template>
     <title-blue> О нас </title-blue>
 
+<!--    <title-white class="mb-4"> Загрузка фото </title-white>-->
+<!--    <form class="mb-5" @submit.prevent="onSubmit" method="post" enctype="multipart/form-data">-->
+<!--        <div class="form-group mb-5">-->
+<!--            <input id="image" v-on:change="onFileChange"  type="file">-->
+<!--        </div>-->
+
+<!--        <btn-filled class="p-2" type="submit"> Загрузить </btn-filled>-->
+<!--    </form>-->
+
+<!--    <img v-if="this.path" :src="`/storage/${path}`" alt="testImg">-->
+
+
     <section class="block-text">
         <p class="mb-2">
             Если ты дошел до этой странички, то тебе явно хочется узнать о нас побольше. Наш сервер был создан
@@ -20,12 +32,12 @@
             <div class="col-xl-4 col-lg-12 mb-5">
                 <card title="Мы">
                     <a href="#" class="card__item">
-                        <img src="@/img/i-discord.svg" class="me-3" alt="" width="30">
+                        <img :src="`/storage/static/i-discord.svg`" class="me-3" alt="" width="30">
                         Discord-сервер
                     </a>
 
                     <a href="#" class="card__item">
-                        <img src="@/img/i-boosty.svg" class="me-3" alt="" width="30">
+                        <img :src="`/storage/static/i-boosty.svg`"  class="me-3" alt="" width="30">
                         Boosty
                     </a>
                 </card>
@@ -36,7 +48,7 @@
                     <div class="row">
                         <div class="col-xl-4 col-md-12" v-for="i in 6" :key="i">
                             <a href="#" class="card__item">
-                                <user-item img="three-dog-night.png"> streamer {{i}} </user-item>
+                                <user-item img="/storage/dynamic/three-dog-night.png" > streamer {{i}} </user-item>
                             </a>
                         </div>
                     </div>
@@ -48,24 +60,49 @@
             <div class="col-xl-auto col-md-12 align-items-center mb-5">
                 <card class="card_dev-team" title="Команда разработки сайта">
                     <div class="card__item" v-for="i in 5" :key="i">
-                        <user-item img="three-dog-night.png">
+                        <user-item img="/storage/dynamic/three-dog-night.png">
                             <p><span class="text-color-blue"> User {{ i }} </span> - главный разработчик </p>
                         </user-item>
                     </div>
                 </card>
             </div>
             <div class="col-xl-7 col-md-12 mb-5">
-                <img src="@/img/about/campfire.png" class="img-fluid" alt="">
+                <img :src="`/storage/static/campfire.png`" class="img-fluid" alt="">
             </div>
         </div>
     </section>
 
-    <btn-filled class="btn-boosty"><img src="@/img/i-boosty.svg"> Boosty</btn-filled>
+    <btn-boosty></btn-boosty>
 </template>
 
-<script setup>
-import TitleBlue from "../components/UI/TitleBlue.vue";
-import UserItem from "../components/UI/UserItem.vue";
+<script>
+
+export default {
+    data() {
+        return {
+            image: null,
+            uploadImg: null,
+            path: '',
+        }
+    },
+    methods: {
+        onFileChange(e) {
+            this.image = e.target.files || e.dataTransfer.files;
+            if (!this.image.length) return;
+            this.onSubmit();
+        },
+        onSubmit() {
+            const formData = new FormData();
+            formData.append('image', this.image[0]);
+            console.log(this.image[0]);
+            axios.post('/image/store', formData, {headers: {'Content-Type': "multipart/form-data"}}).then(res => {
+                console.log(res);
+                this.path = res.data;
+            });
+        }
+    },
+}
+
 </script>
 
 <style lang="scss">
