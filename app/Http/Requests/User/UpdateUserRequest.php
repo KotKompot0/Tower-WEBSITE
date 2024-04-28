@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBoardGameRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class StoreBoardGameRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|min:4',
-            'description' => 'required|string',
-            'photo' => 'required|string',
+            'username' => 'required|string|min:3',
+            'email' => 'required|string',
         ];
     }
 }

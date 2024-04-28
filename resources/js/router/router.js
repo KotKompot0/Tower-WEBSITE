@@ -45,6 +45,11 @@ const routes = [
         name: 'user.account',
         component: () => import('@js/pages/AccountPage.vue')
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: () => import('@js/pages/NotFoundPage.vue')
+    }
 ]
 
 const router = createRouter({
@@ -54,8 +59,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const token = cookies.get('x_xsrf_token');
-    // console.log(token);
-
     if (!token) {
         if (to.name === 'user.account') {
             return next(false)

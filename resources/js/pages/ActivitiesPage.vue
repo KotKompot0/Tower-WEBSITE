@@ -1,8 +1,9 @@
 <template>
-    <title-blue> Наши активности </title-blue>
-    <activity-select-list :activities="activities"></activity-select-list>
-
-    <router-view v-if="activities" :activities="this.activities"></router-view>
+    <template v-if="activities && this.activities[this.$route.params.activityName]">
+        <title-blue> Наши активности </title-blue>
+        <activity-select-list :activities="activities"></activity-select-list>
+        <router-view :activities="this.activities"></router-view>
+    </template>
 </template>
 
 <script>
@@ -25,6 +26,8 @@ export default {
         getActivities() {
             axios.get('/api/activities').then(res => {
                 this.activities = res.data.data
+                if (!this.activities[this.$route.params.activityName])
+                    router.push({name: 'not-found'})
             })
         },
     },

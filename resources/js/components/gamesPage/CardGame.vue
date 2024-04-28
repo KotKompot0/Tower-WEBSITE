@@ -1,9 +1,9 @@
 <template>
     <card class="card-game mb-5">
         <div class="card-game__items">
-            <a href=""><img class="me-4" :src="`/storage/${game.photo}`" alt="evil-cards"></a>
+            <img class="me-4" :src="`/storage/${game.photo}`" alt="evil-cards">
             <div class="">
-                <a href=""> {{game.title}} </a>
+                <p class="card-game__title" href=""> {{game.title}} </p>
                 <p class="mb-4"> {{game.description}} </p>
                 <btn-filled class="card-game__btn-play"> Играть </btn-filled>
             </div>
@@ -37,7 +37,7 @@ export default {
         color: white;
         font-weight: 500;
     }
-    a {
+    &__title {
         font-size: 1.2em;
         font-weight: 600;
     }

@@ -33,6 +33,8 @@ export default {
                 axios.get('http://localhost:4008/sanctum/csrf-cookie').then(response => {
                     axios.post('/login', {email: this.email, password: this.password}).then(res => {
                         this.$cookies.set('x_xsrf_token', res.config.headers['X-XSRF-TOKEN']);
+                        console.log(res.config.headers['X-XSRF-TOKEN']);
+
                         this.$parent.$parent.getToken();
                         this.$router.push('/');
                     })

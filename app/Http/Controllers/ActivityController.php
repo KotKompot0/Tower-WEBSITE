@@ -14,8 +14,6 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-//        $activities = Activity::with(['sliders', 'properties', 'user'])->get();
-//        dd($activities);
         return ActivityResource::collection($activities->keyBy->slug);
     }
 

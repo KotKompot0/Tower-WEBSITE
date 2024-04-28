@@ -115,8 +115,6 @@ export default {
             window.location.href = 'https://discord.gg/bYjdJsK5ZH';
         }
     },
-
-
 }
 </script>
 

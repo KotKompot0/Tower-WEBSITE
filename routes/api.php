@@ -21,7 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('/user/account', UserController::class);
+    Route::get('/user', [UserController::class, 'getUser']);
+    Route::patch('/user/update', [UserController::class, 'update']);
 });
 
 Route::apiResources([
