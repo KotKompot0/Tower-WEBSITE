@@ -16,15 +16,17 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'username' => 'Three Dog night',
             'email' => 'three@mail.ru',
-            'password' => Hash::make('123123'),
+            'photo' => 'dynamic/three-dog-night.png',
+            'password' => Hash::make('123'),
         ]);
 
         User::factory()->create([
             'username' => 'tata',
             'email' => 'tata@mail.ru',
-            'password' => Hash::make('123123'),
+            'photo' => 'dynamic/bongo-cat.jpg',
+            'password' => Hash::make('123'),
         ]);
 
-        User::factory(10)->create();
+//        User::factory(10)->create();
     }
 }

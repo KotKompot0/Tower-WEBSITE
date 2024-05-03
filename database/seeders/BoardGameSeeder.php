@@ -17,14 +17,14 @@ class BoardGameSeeder extends Seeder
             [
                 'title' => '500 злобных карт',
                 'description' => 'Нецензурная, саркастическая игра, где игроки создают шокирующие и смешные предложения, выбирая карты с различными фразами. Цель - вызвать смех и удивление среди друзей.',
-                'photo' => './resources/img/games/evil-cards/evil-cards.png',
+                'photo' => 'dynamic/evil-cards.png',
                 'created_at'=> now(),
                 'updated_at'=> now(),
             ],
             [
                 'title' => 'Алиас',
                 'description' => 'Другая очень интересная игра про слова',
-                'photo' => './resources/img/games/evil-cards/evil-cards.png',
+                'photo' => 'dynamic/alias.jpg',
                 'created_at'=> now(),
                 'updated_at'=> now(),
             ],

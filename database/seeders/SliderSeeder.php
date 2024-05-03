@@ -17,114 +17,114 @@ class SliderSeeder extends Seeder
             [
                 // NRI
                 [
-                    'photo' => './resources/img/activities/nri/nri-slider-1.png',
+                    'photo' => 'dynamic/nri-slider-1.png',
                     'activity_id' => 1,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/nri/nri-slider-2.png',
+                    'photo' => 'dynamic/nri-slider-2.png',
                     'activity_id' => 1,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/nri/nri-slider-3.png',
+                    'photo' => 'dynamic/nri-slider-3.png',
                     'activity_id' => 1,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 // Minecraft
                 [
-                    'photo' => './resources/img/activities/minecraft/minecraft-slider-1.png',
+                    'photo' => 'dynamic/minecraft-slider-1.png',
                     'activity_id' => 2,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/minecraft/minecraft-slider-2.png',
+                    'photo' => 'dynamic/minecraft-slider-2.png',
                     'activity_id' => 2,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/minecraft/minecraft-slider-3.png',
+                    'photo' => 'dynamic/minecraft-slider-3.png',
                     'activity_id' => 2,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 // Jackbox
                 [
-                    'photo' => './resources/img/activities/jackbox/jackbox-slider-1.png',
+                    'photo' => 'dynamic/jackbox-slider-1.png',
                     'activity_id' => 3,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/jackbox/jackbox-slider-2.png',
+                    'photo' => 'dynamic/jackbox-slider-2.png',
                     'activity_id' => 3,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/jackbox/jackbox-slider-3.png',
+                    'photo' => 'dynamic/jackbox-slider-3.png',
                     'activity_id' => 3,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 // Games
                 [
-                    'photo' => './resources/img/activities/game/game-slider-1.png',
+                    'photo' => 'dynamic/game-slider-1.png',
                     'activity_id' => 4,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/game/game-slider-2.png',
+                    'photo' => 'dynamic/game-slider-2.png',
                     'activity_id' => 4,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/game/game-slider-3.png',
+                    'photo' => 'dynamic/game-slider-3.png',
                     'activity_id' => 4,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 // Board-games
                 [
-                    'photo' => './resources/img/activities/board-games/board-game-slider-1.png',
+                    'photo' => 'dynamic/board-game-slider-1.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/board-games/board-game-slider-2.png',
+                    'photo' => 'dynamic/board-game-slider-2.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/board-games/board-game-slider-3.png',
+                    'photo' => 'dynamic/board-game-slider-3.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 // Other
                 [
-                    'photo' => './resources/img/activities/other/other-slider-1.png',
+                    'photo' => 'dynamic/other-slider-1.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/other/other-slider-2.png',
+                    'photo' => 'dynamic/other-slider-2.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => './resources/img/activities/other/other-slider-3.png',
+                    'photo' => 'dynamic/other-slider-3.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),

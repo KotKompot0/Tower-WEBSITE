@@ -6,6 +6,7 @@ use App\Http\Requests\StoreBoardGameRequest;
 use App\Http\Requests\UpdateBoardGameRequest;
 use App\Http\Resources\GameResource;
 use App\Models\BoardGame;
+use Illuminate\Support\Facades\Response;
 
 class BoardGameController extends Controller
 {
@@ -14,6 +15,8 @@ class BoardGameController extends Controller
      */
     public function index()
     {
+//        return response()->json(['message' => 'Page Not Found. If error persists, contact info@website.com'], 422);
+
         $boardGames = BoardGame::all();
 
         return GameResource::collection($boardGames);

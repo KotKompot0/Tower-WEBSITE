@@ -1,24 +1,26 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue';
-import {fileURLToPath, URL} from 'url';
-import vitePluginRequire from "vite-plugin-require";
+import vue from '@vitejs/plugin-vue'
+import * as path from "path";
 
 export default defineConfig({
     plugins: [
         vue(),
         laravel({
-            input: ['resources/sass/app.scss', 'resources/js/app.js'],
+            input: [
+                'resources/sass/app.scss',
+                'resources/js/app.js',
+            ],
             refresh: true,
         }),
-        vitePluginRequire.default(),
     ],
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('./resources', import.meta.url)),
-            '@js': fileURLToPath(new URL('./resources/js', import.meta.url))
+            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+            '@': '/resources',
+            '@js': '/resources/js',
+            '@sass': '/resources/sass',
         }
-
     },
     css: {
         preprocessorOptions: {
@@ -32,5 +34,4 @@ export default defineConfig({
             }
         }
     }
-
 });
