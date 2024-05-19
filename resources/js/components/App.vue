@@ -1,5 +1,5 @@
 <template>
-    <navbar></navbar>
+    <navbar :token="token"></navbar>
     <main>
         <div class="wrapper">
             <!-- Рисунки драконов по бокам -->
@@ -9,7 +9,8 @@
             <!-- Основной контент -->
             <div class="container my-container">
                 <img :src="`/storage/static/border-decor.svg`" class="border-decor border-decor_left" alt="BorderDecor">
-                <img :src="`/storage/static/border-decor.svg`" class="border-decor border-decor_right" alt="BorderDecor">
+                <img :src="`/storage/static/border-decor.svg`" class="border-decor border-decor_right"
+                     alt="BorderDecor">
 
                 <router-view></router-view>
             </div>
@@ -22,6 +23,11 @@
 import axios from "axios";
 
 export default {
+    data() {
+        return {
+            token: localStorage.getItem('token'),
+        }
+    },
 }
 </script>
 
@@ -56,6 +62,7 @@ button {
     @extend %textFont;
     transition: 0.2s ease;
 }
+
 .bg-color {
     background: $color-blue;
 }

@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBoardGameRequest;
-use App\Http\Requests\UpdateBoardGameRequest;
-use App\Http\Resources\GameResource;
-use App\Models\BoardGame;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Request;
 
-class BoardGameController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $boardGames = BoardGame::all();
-        return GameResource::collection($boardGames);
+        return response()->json('tasks');
     }
 
     /**
@@ -30,7 +25,7 @@ class BoardGameController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBoardGameRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -38,7 +33,7 @@ class BoardGameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BoardGame $boardGame)
+    public function show(string $id)
     {
         //
     }
@@ -46,7 +41,7 @@ class BoardGameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(BoardGame $boardGame)
+    public function edit(string $id)
     {
         //
     }
@@ -54,7 +49,7 @@ class BoardGameController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBoardGameRequest $request, BoardGame $boardGame)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -62,7 +57,7 @@ class BoardGameController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BoardGame $boardGame)
+    public function destroy(string $id)
     {
         //
     }

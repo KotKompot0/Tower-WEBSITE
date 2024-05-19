@@ -58,21 +58,19 @@ export default {
     name: 'navbar',
     props: {
         token: {type: String},
+        errors: '',
     },
     methods: {
         logout() {
-            try {
-                axios.get('http://localhost:4008/sanctum/csrf-cookie').then(response => {
-                    axios.post('/logout').then(res => {
-                        this.$cookies.remove('x_xsrf_token');
-                        this.$parent.getToken();
-                        this.$router.push('/');
-                    })
-                });
-            } catch (error) {
-                console.log(error.response)
-            }
+            axios.post('/api/logout').then(res => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                this.$parent.token = '';
+                this.$router.push('/');
+            }).catch((error) => {
+                console.log(error);
 
+            });
         },
     }
 }

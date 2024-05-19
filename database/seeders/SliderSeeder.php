@@ -66,12 +66,6 @@ class SliderSeeder extends Seeder
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
-                [
-                    'photo' => 'dynamic/jackbox-slider-3.png',
-                    'activity_id' => 3,
-                    'created_at'=> now(),
-                    'updated_at'=> now(),
-                ],
                 // Games
                 [
                     'photo' => 'dynamic/game-slider-1.png',
@@ -93,19 +87,19 @@ class SliderSeeder extends Seeder
                 ],
                 // Board-games
                 [
-                    'photo' => 'dynamic/board-game-slider-1.png',
+                    'photo' => 'dynamic/board-games-slider-1.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => 'dynamic/board-game-slider-2.png',
+                    'photo' => 'dynamic/board-games-slider-2.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],
                 [
-                    'photo' => 'dynamic/board-game-slider-3.png',
+                    'photo' => 'dynamic/board-games-slider-3.png',
                     'activity_id' => 5,
                     'created_at'=> now(),
                     'updated_at'=> now(),
@@ -113,19 +107,7 @@ class SliderSeeder extends Seeder
                 // Other
                 [
                     'photo' => 'dynamic/other-slider-1.png',
-                    'activity_id' => 5,
-                    'created_at'=> now(),
-                    'updated_at'=> now(),
-                ],
-                [
-                    'photo' => 'dynamic/other-slider-2.png',
-                    'activity_id' => 5,
-                    'created_at'=> now(),
-                    'updated_at'=> now(),
-                ],
-                [
-                    'photo' => 'dynamic/other-slider-3.png',
-                    'activity_id' => 5,
+                    'activity_id' => 6,
                     'created_at'=> now(),
                     'updated_at'=> now(),
                 ],

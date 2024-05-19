@@ -2,10 +2,11 @@
     <div class="d-flex flex-column align-items-center">
         <title-blue> Регистрация</title-blue>
         <div class="w-50">
-            <input v-model="name" type="text" placeholder="Никнейм" class="form-control">
+            <input v-model="username" type="text" placeholder="Никнейм" class="form-control">
             <input v-model="email" type="email" placeholder="Email" class="form-control">
             <input v-model="password" type="password" placeholder="Пароль" class="form-control">
-            <input v-model="password_confirmation" type="password" placeholder="Подтвердите пароль" class="form-control">
+            <input v-model="password_confirmation" type="password" placeholder="Подтвердите пароль"
+                   class="form-control">
             <btn-filled class="btn" @click.prevent="register" type="submit"> Подтвердить</btn-filled>
 
         </div>
@@ -13,15 +14,17 @@
 </template>
 
 <script>
+// import axios from "axios";
+//
+// axios.defaults.withCredentials = true;
 import axios from "axios";
 
-axios.defaults.withCredentials = true;
 export default {
     name: 'Registration',
 
     data() {
         return {
-            name: null,
+            username: null,
             email: null,
             password: null,
             password_confirmation: null,
@@ -29,19 +32,20 @@ export default {
     },
     methods: {
         register() {
-            try {
-                axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/register', {name: this.name, email: this.email, password: this.password, password_confirmation: this.password_confirmation}).then(res => {
-                        // console.log(res);
-                        this.$cookies.set('x_xsrf_token', res.config.headers['X-XSRF-TOKEN']);
-                        this.$parent.$parent.getToken();
-                        this.$router.push('/')
-                    })
-                });
-            } catch (error) {
-                console.log(error.response)
-            }
-
+            axios.post('/api/register', {
+                username: this.username,
+                email: this.email,
+                password: this.password,
+                password_confirmation: this.password_confirmation
+            }).then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.data.token);
+                localStorage.setItem('user', JSON.stringify(res.data.data.user));
+                this.$parent.$parent.token = localStorage.getItem('token');
+                this.$router.push('/');
+            }).catch((error) => {
+                console.log(error);
+            });
         }
     }
 }

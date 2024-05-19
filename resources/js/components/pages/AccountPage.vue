@@ -5,7 +5,7 @@
             <div class="col-auto me-3 mb-4">
                 <div class="user-photo">
                     <img v-if="user.photo" class="img-fluid" :src="`/storage/${user.photo}`" alt="user-photo">
-                    <p v-else class="user-photo__letter"> M </p>
+                    <p v-else class="user-photo__letter"> {{ user.username[0].toUpperCase() }} </p>
                 </div>
             </div>
             <div class="col-xl-5 col-md-12 d-flex flex-column">
@@ -17,9 +17,7 @@
             </div>
         </div>
     </form>
-
 </template>
-
 <script>
 
 import ActivityList from "@js/components/indexPage/ActivityList.vue";
@@ -30,29 +28,20 @@ export default {
     components: {UserItem, ActivityItem, ActivityList},
     data() {
         return {
-            user: {
-                username: '',
-                email: '',
-            },
+            user: JSON.parse(localStorage.getItem('user')) || {},
+            new_user: JSON.parse(localStorage.getItem('user')) || {}
         }
-    },
-    mounted() {
-        this.getUser()
     },
     methods: {
-        getUser() {
-            axios.get('/api/user').then(res => {
-                this.user = res.data;
-            })
-        },
-
         updateUser() {
-            axios.patch('/api/user/update', this.user).then(res => {
-                console.log(res);
-            })
-
+            if (this.user.username !== this.new_user.username || this.user.email !== this.new_user.email) {
+                axios.patch('/api/user/update', this.user).then(res => {
+                    localStorage.setItem('user', JSON.stringify(res.data.data));
+                }).catch((error) => {
+                    console.log(error);
+                });
+            }
         }
-
     }
 }
 </script>
