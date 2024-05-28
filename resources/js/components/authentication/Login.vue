@@ -65,5 +65,9 @@ export default {
     background: $color-bg;
     color: white !important;
     border-color: $color-blue;
+    &::placeholder {
+        color: #485A63;
+    }
 }
+
 </style>
